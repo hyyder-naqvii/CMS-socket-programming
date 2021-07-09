@@ -1,0 +1,6 @@
+bg-color : #04172B
+bg-light : 	#072658
+blue : #167AEA
+blue-light : #76C1F7
+accent : #FF5623
+accent-light : #FF6D26

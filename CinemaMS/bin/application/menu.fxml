@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="menu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="body" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MenuController">
+   <children>
+      <AnchorPane prefHeight="768.0" prefWidth="359.0" styleClass="sideBar" stylesheets="@application.css">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="57.0" prefHeight="93.0" prefWidth="301.0" text="CINEMA" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Lato Black" size="70.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="134.0" prefHeight="60.0" prefWidth="301.0" text="Management System" textAlignment="CENTER" textFill="#ffffffb5">
+               <font>
+                  <Font name="Leelawadee UI" size="28.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <VBox layoutX="12.0" layoutY="244.0" prefHeight="339.0" prefWidth="339.0" spacing="20.0">
+               <children>
+                  <Button fx:id="moviesBTN" mnemonicParsing="false" onAction="#OnMovies" prefHeight="57.0" prefWidth="339.0" text="Movies" textFill="WHITE">
+                     <font>
+                        <Font name="Lato Bold" size="22.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="showsButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#OnShows" prefHeight="57.0" prefWidth="339.0" text="Shows" textFill="WHITE">
+                     <font>
+                        <Font name="Lato Bold" size="22.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="moviesBTN11" layoutX="10.0" layoutY="67.0" mnemonicParsing="false" onAction="#OnBookings" prefHeight="57.0" prefWidth="339.0" text="Bookings" textFill="WHITE">
+                     <font>
+                        <Font name="Lato Bold" size="22.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="closeButton" layoutX="10.0" layoutY="124.0" mnemonicParsing="false" onAction="#OnExit" prefHeight="57.0" prefWidth="339.0" text="Exit" textFill="WHITE">
+                     <font>
+                        <Font name="Lato Bold" size="22.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+         <effect>
+            <DropShadow height="0.0" radius="52.9325" width="213.73">
+               <color>
+                  <Color red="0.0044999998062849045" green="0.07724999636411667" blue="0.15000000596046448" opacity="0.52173912525177" />
+               </color>
+            </DropShadow>
+         </effect>
+      </AnchorPane>
+      <ImageView fitHeight="502.0" fitWidth="502.0" layoutX="455.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../cinemaIcon.png" />
+         </image>
+      </ImageView>
+   </children>
+   <stylesheets>
+      <URL value="@application.css" />
+      <URL value="@application.css" />
+   </stylesheets>
+</AnchorPane>

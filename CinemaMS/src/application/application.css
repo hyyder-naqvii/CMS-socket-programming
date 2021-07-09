@@ -1,0 +1,140 @@
+
+.body{
+	-fx-background-color: #04172B;
+}
+
+.sideBar{
+	-fx-background-color: #072658;
+}
+.button{
+	-fx-background-color: #FF5623;
+	-fx-background-radius: 30;
+}
+.button:hover{
+	-fx-background-color: #FF6D26;
+
+}
+.inputPanel{
+	-fx-background-color: #072658;
+	-fx-background-radius: 30;
+	
+}
+.panel {
+	-fx-background-color: #76C1F7;
+	-fx-background-radius: 30;
+}
+
+.text-field{
+	-fx-background-radius: 30;
+	-fx-background-color: #04172B,#04172B;
+	-fx-font-size: 20px;
+	-fx-text-fill: #FF6D26;
+	-fx-background-insets: 0, 2;
+}
+.text-field:focused{
+	-fx-background-color: #FF6D26,#04172B;
+}
+.datePicker{
+	-fx-background-radius: 30;
+	-fx-background-color: #04172B;
+}
+
+.datePicker:editable > .arrow-button > * {
+    -fx-opacity: 0; /* Set the node in the button to be visible */
+}
+.datePicker:editable > .arrow-button {
+-fx-background-color: #04172B;
+-fx-min-width: 150px;
+}
+.choiceBox{
+	-fx-background-radius: 30; 
+	-fx-background-color: #04172B,#04172B;
+	-fx-background-insets: 0, 2;
+}
+.choiceBox:focused{
+	-fx-background-radius: 30; 
+	-fx-background-color: #FF6D26,#04172B;
+}
+.choiceBox .context-menu {
+	
+	-fx-background-color: #04172B;
+	-fx-font-size: 20px;
+	-fx-text-fill : #FF6D26;
+}
+
+
+.choiceBox .menu-item:focused { -fx-background-color: #FF6D26; }
+
+.choiceBox .menu-item > .label { -fx-text-fill: #fff; }
+
+.choiceBox .menu-item:focused > .label { -fx-text-fill: #04172B; }
+.choice-box > .label { 
+	-fx-text-fill: #FF6D26;
+	-fx-font-size: 20px;
+	
+}
+
+
+
+
+
+
+
+
+
+
+.table-view {
+    -fx-background-color: transparent;
+    
+}
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background{
+    -fx-background-color: #FF6D26;
+	
+    -fx-padding: 10px 10px 10px 10px;
+}
+.table-view .column-header .label {
+     -fx-text-fill: #fff;
+    -fx-font-size: 15px;
+}
+.table-view .column-header {
+    -fx-background-color: transparent;
+   
+}
+
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+    -fx-text-fill: #fff;
+    -fx-font-size: 15px;
+    -fx-padding: 10px 10px 10px 10px;
+}
+
+.table-row-cell : hover {
+    -fx-background-color: #76C1F7;
+
+}
+.table-row-cell : even{
+    -fx-background-color: #04172B;
+    -fx-background-insets: 0, 0 0 1 0;
+    
+}
+.table-row-cell : odd{
+    -fx-background-color: #072658;
+    -fx-background-insets: 0, 0 0 1 0;
+
+}
+
+
+
+
+
+
+
+
+
