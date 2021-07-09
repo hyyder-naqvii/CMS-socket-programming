@@ -37,8 +37,6 @@ import javafx.scene.layout.AnchorPane;
 
 
 public class BookingsController implements Initializable {
-
-	
 	@FXML
 	public AnchorPane bookings;
 	@FXML
@@ -49,27 +47,18 @@ public class BookingsController implements Initializable {
 	public AnchorPane searchBooking;
 	
 	//Add Movie Inputs
-	
-
 	@FXML
 	public TextField fName;
 	@FXML
 	public TextField lName;
 	@FXML
 	public TextField nSeats;
-
 	@FXML 
 	public ChoiceBox<String> availableShows;
 
-	
-//	@FXML
-//	public Button showAddButton;
-	
 	@FXML
 	public Label infoTextB;
-	
-	
-	
+
 	//Table View (Movies)
 	@FXML
 	public TableView<Booking> bookingTable;
@@ -85,7 +74,7 @@ public class BookingsController implements Initializable {
 	 TableColumn<Booking,String> bTime;
 	@FXML
 	 TableColumn<Booking,String> bSeats;
-	
+
 	//Table View (Search Movies)
 	public TableView<Booking> bookingSearchTable;
 	@FXML
@@ -114,15 +103,11 @@ public class BookingsController implements Initializable {
 	  searchBooking.setVisible(false);
 	  AnchorPane parent = FXMLLoader.load(getClass().getResource("menu.fxml"));
 	  bookings.getChildren().setAll(parent);
-	  
-			
-		
-		
+
 	}
 @FXML
 	public void OnAddBookingMenu(ActionEvent e) throws IOException {
 //	//Send an add movie message to client so it can be forwarded to the server.
-
 		  addBooking.setVisible(true);
 		  viewBooking.setVisible(false);
 		  searchBooking.setVisible(false);
@@ -130,11 +115,8 @@ public class BookingsController implements Initializable {
 		  fName.setText("");
 		  fName.setText("");
 		  nSeats.setText("");
-		 
 		  availableShows.setValue("");
-
-		  
-		  
+	  
 		}
 //
 //@FXML
@@ -206,35 +188,22 @@ public class BookingsController implements Initializable {
 		
 	}
 	
-
 @FXML
 public void OnViewBookings(ActionEvent e) throws Exception {
 	addBooking.setVisible(false);
 	viewBooking.setVisible(true);
 	searchBooking.setVisible(false);
-	
 	bookingTable.setItems(getBookings(BookingMenuClient.ViewBookings(Client.clientIn)));
 
-
-	
 }
-
 public void OnSearchBookingMenu(ActionEvent e) {
 	addBooking.setVisible(false);
 	viewBooking.setVisible(false);
 	searchBooking.setVisible(true);
 }
-
 public void OnSearchBookings() throws Exception {
-	
-	
-	
 	bookingSearchTable.setItems(getBookings(BookingMenuClient.SearchBookings(Client.clientIn,searchFieldB.getText().trim())));
-
-
-	
 }
-
 private ObservableList<Booking> getBookings(ArrayList<String> bookings){
 	ObservableList<Booking> bookingsOL = FXCollections.observableArrayList();
 	for(String booking:bookings) {
@@ -242,7 +211,6 @@ private ObservableList<Booking> getBookings(ArrayList<String> bookings){
 	}
 	return bookingsOL;
 }
-
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -263,17 +231,14 @@ private ObservableList<Booking> getBookings(ArrayList<String> bookings){
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
-		 
+		} 
 		 //Set View Bookings Table Cells
 		 bID.setCellValueFactory(new PropertyValueFactory("ID"));
 		 bFirstName.setCellValueFactory(new PropertyValueFactory("firstName"));
 		 bLastName.setCellValueFactory(new PropertyValueFactory("lastName"));
 		 bMovie.setCellValueFactory(new PropertyValueFactory("movieName"));
 		 bTime.setCellValueFactory(new PropertyValueFactory("showTime"));
-		 bSeats.setCellValueFactory(new PropertyValueFactory("seatsString"));
-		
+		 bSeats.setCellValueFactory(new PropertyValueFactory("seatsString"));	
 		 //Set Search Bookings Table Cells
 		 bIDS.setCellValueFactory(new PropertyValueFactory("ID"));
 		 bFirstNameS.setCellValueFactory(new PropertyValueFactory("firstName"));

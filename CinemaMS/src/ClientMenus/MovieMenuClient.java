@@ -23,18 +23,15 @@ public class MovieMenuClient {
 			System.out.println("Choose an Option");
 			choice = keyboardInput.readLine();
 			//Send option to the client
-			
-			
-		
 			switch(choice) {
 			case "1":
 				clientOut.writeObject(choice);
 				clientOut.flush();
 				System.out.println("Trying to add MOvie");
 				//Create a new movie object and send it to server for processing
-				Movie movie = GetMovieInput(keyboardInput);
-				System.out.println(movie.toString());
-				clientOut.writeObject(movie);
+				//Movie movie = GetMovieInput(keyboardInput);
+				//System.out.println(movie.toString());
+				//clientOut.writeObject(movie);
 				
 				System.out.println((String)clientIn.readObject());
 				//clientObjectOut.close();
@@ -44,7 +41,7 @@ public class MovieMenuClient {
 				@SuppressWarnings("unchecked") ArrayList<String>  movieListFromServer = (ArrayList<String>) clientIn.readObject();
 				System.out.println("Movie Length" + movieListFromServer.size());
 				
-				PrintMoviesTable(movieListFromServer);
+				//PrintMoviesTable(movieListFromServer);
 				break;
 			case "3":
 				clientOut.writeObject(choice);
@@ -71,7 +68,10 @@ public class MovieMenuClient {
 		}
 	}
 
-	static  Movie GetMovieInput(BufferedReader keyboardInput) throws IOException {
+	
+	//--------------- THESE ARE CLI IMPLEMENTATION FUNCTIONS -------------
+	
+//static  Movie GetMovieInput(BufferedReader keyboardInput) throws IOException {
 //		String name,genre,country,language,year;
 //		System.out.println("Enter Movie Details");
 //		System.out.println("Enter Movie Name (e.g Titanic)");
@@ -86,10 +86,10 @@ public class MovieMenuClient {
 //		year = keyboardInput.readLine();
 //		
 //		return new Movie(name,genre,country,language,year);
-		return null;
+//		return null;
 		
-	}
-	public static void PrintMoviesTable(ArrayList<String> movies) {
+//}
+//	public static void PrintMoviesTable(ArrayList<String> movies) {
 		
 //		System.out.printf("ID \t\t\t\t\t\t\t NAME \t\t\t GENRE  \t\t\t LANGUAGE \t\t COUNTRY \t YEAR \n");
 //		if(movies.isEmpty()) {
@@ -110,8 +110,13 @@ public class MovieMenuClient {
 //					);
 //			
 //		}
-	}
-
+//	}
+	
+	//--------------- END OF CLI IMPLEMENTATION FUNCTIONS -------------
+	
+	//--------------- THESE ARE GUI IMPLEMENTATION FUNCTIONS -------------
+	
+	
 	public static void AddMovie(ObjectOutputStream clientOut,Movie movie) throws IOException {
 		clientOut.writeObject(movie);
 		clientOut.flush();
@@ -133,6 +138,6 @@ public class MovieMenuClient {
 		return movieListFromServer;
 	}
 	
-	
+	//--------------- END OF GUI IMPLEMENTATION FUNCTIONS -------------
 
 }

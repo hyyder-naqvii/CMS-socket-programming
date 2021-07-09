@@ -11,7 +11,6 @@ import ServerMenus.MovieMenu;
 import ServerMenus.ShowsMenu;
 
 public class Server {
-
 	 ServerSocket serverSocket = null;
 	 static Socket socket = null;
 	
@@ -25,7 +24,6 @@ public class Server {
 	public static void main(String[] args) throws Exception {
 		//Create a new server instance
 		new Server();
-
 	}
 	
 	Server() throws Exception{
@@ -67,13 +65,11 @@ public class Server {
 					case 4:
 						DisconnectClient();
 						break;
-					}
-							
+					}		
 				}
 				
 			}
-			
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

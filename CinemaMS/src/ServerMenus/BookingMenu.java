@@ -38,6 +38,7 @@ public  static void ShowMenu(ObjectInputStream serverIn,ObjectOutputStream serve
 	
 
 	private static void AddBooking(ObjectInputStream serverIn,ObjectOutputStream serverOut) throws Exception {
+		//--------------- UNCOMMENT THIS PART FOR CLI IMPLEMENTATION -------------
 //		System.out.println("Client Requested to Add Booking....");
 //		ArrayList<String> availableShows  = GenericDBManager.ViewObjects("shows.txt");
 //		serverOut.writeObject(availableShows);
@@ -66,6 +67,11 @@ public  static void ShowMenu(ObjectInputStream serverIn,ObjectOutputStream serve
 //		
 //		
 //		serverOut.flush();
+		
+		
+		//--------------- xxxxxxxxXXXXXXxxxxxxXXXXXXxxxxxxxxx -------------
+		
+		//--------------- COMMENT THIS PART TO REMOVE GUI IMPLEMENTATION -------------
 		ArrayList<String> availableShows  = GenericDBManager.ViewObjects("shows.txt");
 		System.out.println("Client Requested to Add Booking....");
 		Booking booking = (Booking)serverIn.readObject();
@@ -83,9 +89,8 @@ public  static void ShowMenu(ObjectInputStream serverIn,ObjectOutputStream serve
 				System.out.println("No Show Found!");
 		}
 
-		
-		
-		
+		//--------------- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -------------
+
 	}
 
 	private static void SearchBookings(ObjectInputStream serverIn,ObjectOutputStream serverOut) throws Exception {

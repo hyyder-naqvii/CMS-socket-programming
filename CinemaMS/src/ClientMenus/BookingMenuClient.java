@@ -33,7 +33,7 @@ public class BookingMenuClient   {
 			case "1":
 				clientOut.writeObject(choice);
 //				//Create a new movie object and send it to server for processing
-				clientOut.writeObject(GetBooking(keyboardInput,clientIn,clientOut));
+				//clientOut.writeObject(GetBooking(keyboardInput,clientIn,clientOut));
 				
 				System.out.println((String)clientIn.readObject());
 //				//clientObjectOut.close();
@@ -41,7 +41,7 @@ public class BookingMenuClient   {
 			case "2":
 				clientOut.writeObject(choice);
 				@SuppressWarnings("unchecked") ArrayList<String>  allBookings = (ArrayList<String>)clientIn.readObject();
-				PrintBookingsTable(allBookings);
+				//PrintBookingsTable(allBookings);
 				break;
 			case "3":
 				clientOut.writeObject(choice);
@@ -51,7 +51,7 @@ public class BookingMenuClient   {
 				
 				@SuppressWarnings("unchecked") ArrayList<String> currentBookings = (ArrayList<String>)clientIn.readObject();
 				
-					PrintBookingsTable(currentBookings);
+					//PrintBookingsTable(currentBookings);
 			
 				break;
 			case "4":
@@ -63,7 +63,10 @@ public class BookingMenuClient   {
 			
 		}
 	}
-	static  Booking GetBooking(BufferedReader keyboardInput,ObjectInputStream clientIn,ObjectOutputStream clientOut) throws IOException, ClassNotFoundException {
+	
+	//------ THIS CODE IS FOR THE CLI IMPLEMENTATION -------
+	
+	//static  Booking GetBooking(BufferedReader keyboardInput,ObjectInputStream clientIn,ObjectOutputStream clientOut) throws IOException, ClassNotFoundException {
 //		String firstName,lastName,movieName,showTime;
 //		int seats;
 //		@SuppressWarnings("unchecked")
@@ -82,10 +85,12 @@ public class BookingMenuClient   {
 //		seats = Integer.parseInt(keyboardInput.readLine().trim());
 //		
 //		return new Booking(firstName, lastName, movieName, showTime, seats);
-		return null;
-	}
+		//return null;
+	//}
 
-	static void PrintBookingsTable(ArrayList<String> bookings) {
+	
+	
+	//static void PrintBookingsTable(ArrayList<String> bookings) {
 		
 //		System.out.printf("ID \t\t\t\t\t\t\t \t\t\t First Name \t\t\t Last Name \t\t\t  Movie \t\t\t Time  \t\t\t Booked Seats \n" );
 //		if(bookings.isEmpty()) {
@@ -105,9 +110,12 @@ public class BookingMenuClient   {
 //					);
 //			
 //		}
-	}
+	//}
 	
 	
+	//--------------- END OF CLI IMPLEMENTATION FUNCTIONS -------------
+	
+	//--------------- THESE FUNCTIONS ARE CALLED BY THE COMMAND LINE -------------
 	
 	
 	public static ArrayList<String> SearchBookings(ObjectInputStream clientIn, String searchKey) throws IOException, ClassNotFoundException {
@@ -132,6 +140,6 @@ public class BookingMenuClient   {
 		return bookingListFromServer;
 	}
 	
-	
+	////--------------- END OF GUI IMPLEMENTATION FUNCTIONS -------------
 	
 }

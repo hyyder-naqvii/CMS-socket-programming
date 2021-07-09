@@ -42,9 +42,7 @@ public class MoviesController implements Initializable {
 			"Romance",
 			"Crime",
 			"Family",
-			
 	};
-	
 	
 	@FXML
 	public AnchorPane movies;
@@ -55,7 +53,6 @@ public class MoviesController implements Initializable {
 	@FXML
 	public AnchorPane searchMovies;
 	//Add Movie Inputs
-	
 	@FXML
 	public TextField movieName;
 	@FXML
@@ -67,15 +64,9 @@ public class MoviesController implements Initializable {
 	public DatePicker movieDate;
 	@FXML 
 	public ChoiceBox<String> genres;
-	
-	@FXML
-	public Button moviesAddButton;
-	
+
 	@FXML
 	public Label infoText;
-	
-	
-	
 	//Table View (Movies)
 	@FXML
 	public TableView<Movie> movieTable;
@@ -91,7 +82,6 @@ public class MoviesController implements Initializable {
 	 TableColumn<Movie,String> mLanguage;
 	@FXML
 	 TableColumn<Movie,String> mYear;
-	
 	//Table View (Search Movies)
 	public TableView<Movie> movieSearchTable;
 	@FXML
@@ -106,11 +96,10 @@ public class MoviesController implements Initializable {
 	 TableColumn<Movie,String> mLanguageS;
 	@FXML
 	 TableColumn<Movie,String> mYearS;
-	
 	@FXML
 	TextField searchField;
 	
-	
+	//Called when Exit button is pressed in the Movies menu
 	public void OnExit(ActionEvent e) throws IOException {
 		//Send an exit message to client so it can be forwarded to the server.
 	  Client.clientOut.writeObject("4");
@@ -125,10 +114,9 @@ public class MoviesController implements Initializable {
 		
 		
 	}
+	//Called when Add button is pressed in the Movies menu
 @FXML
 	public void OnAddMoviesMenu(ActionEvent e) throws IOException {
-	//Send an add movie message to client so it can be forwarded to the server.
-
 		  movieContent.setVisible(true);
 		  viewMovies.setVisible(false);
 		  searchMovies.setVisible(false);
@@ -138,15 +126,13 @@ public class MoviesController implements Initializable {
 		  movieCountry.setText("");
 		  genres.setValue("");
 		  movieDate.setValue(null);
-		  
-		  
 		}
 
+//Called when Submit button is pressed in the Movies Add menu
 @FXML
 	public void OnAddMovie(ActionEvent e) throws Exception {
 	boolean hasError = false;
 	String errorString = "";
-	
 	infoText.setVisible(true);	
 	//Get Inputs as strings here
 		String name = movieName.getText();
@@ -159,14 +145,12 @@ public class MoviesController implements Initializable {
 		}
 		else {
 			year = formatter.format(date).trim();
-		}
-		 
+		} 
 		String genre = genres.getValue();
 		//Create a new Movie Object
-		if(name == "" || language == "" || country == "" || year == "" || genre == null ) {
+		if(name == "" || language == "" || country == "" || year == "" || genre == null || genre.isEmpty() ) {
 			hasError = true;
-			errorString = "Invalid Input!";
-			
+			errorString = "Invalid Input!";	
 		}
 		if(!hasError) {
 			Client.clientOut.writeObject("1");
@@ -181,42 +165,30 @@ public class MoviesController implements Initializable {
 			infoText.setStyle("-fx-text-fill : red");
 		}
 		
-		//MovieMenu.AddMovie(Server.serverIn,Server.socket);
-		
 	}
-	
-@SuppressWarnings("unchecked")
+
+//Called when View button is pressed in the Movies menu
 @FXML
 public void OnViewMovie(ActionEvent e) throws Exception {
 	movieContent.setVisible(false);
 	viewMovies.setVisible(true);
 	searchMovies.setVisible(false);
-	
 	movieTable.setItems(getMovies(MovieMenuClient.ViewMovies(Client.clientIn)));
 
-
-	
 }
 
-
+//Called when Search button is pressed in the Movies menu
 public void OnSearchMovieMenu(ActionEvent e) {
 	movieContent.setVisible(false);
 	viewMovies.setVisible(false);
 	searchMovies.setVisible(true);
 }
 
-
+//Called when Search button is pressed in the Movies Search menu
 public void OnSearchMovie() throws Exception {
-	
-	
-	
 	movieSearchTable.setItems(getMovies(MovieMenuClient.SearchMovies(Client.clientIn,searchField.getText().trim())));
-
-
 	
 }
-
-	
 
 private ObservableList<Movie> getMovies(ArrayList<String> movies){
 	ObservableList<Movie> moviesOL = FXCollections.observableArrayList();
@@ -226,19 +198,18 @@ private ObservableList<Movie> getMovies(ArrayList<String> movies){
 	return moviesOL;
 }
 
-
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		movieContent.setVisible(false);
 		viewMovies.setVisible(false);
 		searchMovies.setVisible(false);
 		 
-		
-		
+		//Populate the Genres Choice box
 		
 		 for(String genre:genresString) {
 			 genres.getItems().add(genre);
 		 }
+		 
 		 //Set View Movies Table Cells
 		 mID.setCellValueFactory(new PropertyValueFactory("ID"));
 		 mName.setCellValueFactory(new PropertyValueFactory("name"));

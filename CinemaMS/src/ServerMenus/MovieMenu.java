@@ -53,8 +53,7 @@ public  static void ShowMenu(ObjectInputStream serverIn,ObjectOutputStream serve
 		
 		//serverOut.writeObject("Movie Added Succesfully");
 		
-		
-		
+
 		
 		//serverOut.flush();
 		
@@ -63,15 +62,7 @@ public  static void ShowMenu(ObjectInputStream serverIn,ObjectOutputStream serve
 		
 		
 	}
-	//------------ GUI CALLS THIS CODE --------------
-//	public static void AddMovie(ObjectInputStream serverIn,Socket socket) throws Exception {
-//		if(serverIn == null) {
-//			serverIn = new ObjectInputStream(socket.getInputStream());
-//		}
-//		System.out.println("Client Requested to Add Movie....");
-//		Movie movie = (Movie)serverIn.readObject();
-//        System.out.println(movie.getName());
-//        GenericDBManager.AddObject(movie,"movies.txt");
+
 //	}
 
 	@SuppressWarnings("unused")

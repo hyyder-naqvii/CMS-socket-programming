@@ -22,14 +22,11 @@ public class ShowMenuClient {
 			System.out.println("Choose an Option");
 			choice = keyboardInput.readLine();
 //			//Send option to the client
-			
-			
-		
 			switch(choice) {
 			case "1":
 				clientOut.writeObject(choice);
 //				//Create a new movie object and send it to server for processing
-				clientOut.writeObject(GetShowInput(keyboardInput,clientIn,clientOut));
+				//clientOut.writeObject(GetShowInput(keyboardInput,clientIn,clientOut));
 				
 				System.out.println((String)clientIn.readObject());
 //				//clientObjectOut.close();
@@ -37,7 +34,7 @@ public class ShowMenuClient {
 			case "2":
 				clientOut.writeObject(choice);
 				@SuppressWarnings("unchecked") ArrayList<String>  showListFromServer = (ArrayList<String>)clientIn.readObject();
-				PrintShowsTable(showListFromServer);
+				//PrintShowsTable(showListFromServer);
 				break;
 			case "3":
 				clientOut.writeObject(choice);
@@ -47,7 +44,7 @@ public class ShowMenuClient {
 				
 				@SuppressWarnings("unchecked") ArrayList<String> availableShows = (ArrayList<String>)clientIn.readObject();
 				
-					PrintShowsTable(availableShows);
+					//PrintShowsTable(availableShows);
 			
 				break;
 			case "4":
@@ -59,7 +56,10 @@ public class ShowMenuClient {
 			
 		}
 	}
-	static  Show GetShowInput(BufferedReader keyboardInput,ObjectInputStream clientIn,ObjectOutputStream clientOut) throws IOException, ClassNotFoundException {
+	
+	//--------------- THESE ARE CLI IMPLEMENTATION FUNCTIONS -------------
+	
+//	static  Show GetShowInput(BufferedReader keyboardInput,ObjectInputStream clientIn,ObjectOutputStream clientOut) throws IOException, ClassNotFoundException {
 //		String movieName,showTime;
 //		int seats;
 //		@SuppressWarnings("unchecked")
@@ -74,11 +74,11 @@ public class ShowMenuClient {
 //		seats = Integer.parseInt(keyboardInput.readLine().trim());
 //		
 //		return new Show(movieName,showTime,seats);
-		return null;
+//		return null;
 		
-	}
+//	}
 
-	public static void PrintShowsTable(ArrayList<String> shows) {
+//	public static void PrintShowsTable(ArrayList<String> shows) {
 		
 //		System.out.printf("ID \t\t\t\t\t\t\t Movie \t\t\t Time  \t\t\t Available Seats\n" );
 //		if(shows.isEmpty()) {
@@ -96,7 +96,15 @@ public class ShowMenuClient {
 //					);
 //			
 //		}
-	}
+//	}
+	
+	
+	//--------------- END OF CLI IMPLEMENTATION FUNCTIONS -------------
+	
+	
+	//--------------- THESE ARE GUI IMPLEMENTATION FUNCTIONS -------------
+
+	
 	public static ArrayList<String> SearchShows(ObjectInputStream clientIn, String searchKey) throws IOException, ClassNotFoundException {
 		System.out.println("Searching " + searchKey);
 		Client.clientOut.writeObject("3");
@@ -118,4 +126,6 @@ public class ShowMenuClient {
 		@SuppressWarnings("unchecked") ArrayList<String>  showListFromServer = (ArrayList<String>) clientIn.readObject();
 		return showListFromServer;
 	}
+	
+	//--------------- END OF GUI IMPLEMENTATION FUNCTIONS -------------
 }

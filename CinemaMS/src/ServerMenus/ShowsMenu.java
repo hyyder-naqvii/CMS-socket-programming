@@ -36,6 +36,7 @@ public  static void ShowMenu(ObjectInputStream serverIn,ObjectOutputStream serve
 	
 	@SuppressWarnings("unused")
 	private static void AddShow(ObjectInputStream serverIn,ObjectOutputStream serverOut) throws Exception {
+		//--------------- COMMENT THIS PART TO REMOVE CLI IMPLEMENTATION -------------
 //		System.out.println("Client Requested to Add Show....");
 //		ArrayList<String> availableMovies  = GenericDBManager.ViewObjects("movies.txt");
 //		System.out.println(availableMovies.size());

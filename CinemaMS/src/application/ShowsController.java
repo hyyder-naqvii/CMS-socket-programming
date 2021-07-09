@@ -35,7 +35,6 @@ import javafx.scene.layout.AnchorPane;
 
 
 public class ShowsController implements Initializable {
-
 	
 	@FXML
 	public AnchorPane shows;
@@ -46,8 +45,8 @@ public class ShowsController implements Initializable {
 	@FXML
 	public AnchorPane searchShow;
 	
-	//Add Movie Inputs
 	
+	//Add Movie Inputs
 
 	@FXML
 	public TextField time;
@@ -63,8 +62,6 @@ public class ShowsController implements Initializable {
 	@FXML
 	public Label infoTextS;
 	
-	
-	
 	//Table View (Movies)
 	@FXML
 	public TableView<Show> showTable;
@@ -77,7 +74,6 @@ public class ShowsController implements Initializable {
 	@FXML
 	 TableColumn<Show,String> sSeats;
 
-	
 	//Table View (Search Movies)
 	public TableView<Show> showSearchTable;
 	@FXML
@@ -92,7 +88,7 @@ public class ShowsController implements Initializable {
 	@FXML
 	TextField searchFieldS;
 	
-	
+	//Called when Exit button is pressed in the Shows menu
 	public void OnExit(ActionEvent e) throws IOException {
 		//Send an exit message to client so it can be forwarded to the server.
 	  Client.clientOut.writeObject("4");
@@ -102,11 +98,9 @@ public class ShowsController implements Initializable {
 	  searchShow.setVisible(false);
 	  AnchorPane parent = FXMLLoader.load(getClass().getResource("menu.fxml"));
 	  shows.getChildren().setAll(parent);
-	  
-			
-		
-		
+
 	}
+	
 @FXML
 	public void OnAddShowsMenu(ActionEvent e) throws IOException {
 //	//Send an add movie message to client so it can be forwarded to the server.
@@ -116,12 +110,9 @@ public class ShowsController implements Initializable {
 		  searchShow.setVisible(false);
 		  infoTextS.setVisible(false);
 		  time.setText("");
-		  seats.setText("");
-		 
+		  seats.setText("");	 
 		  movieName.setValue("");
 
-		  
-		  
 		}
 //
 //@FXML
@@ -174,12 +165,10 @@ public class ShowsController implements Initializable {
 			infoTextS.setText(errorString);
 			infoTextS.setStyle("-fx-text-fill : red");
 		}
-		
-		//MovieMenu.AddMovie(Server.serverIn,Server.socket);
+
 		
 	}
 	
-
 @FXML
 public void OnViewShow(ActionEvent e) throws Exception {
 	addShow.setVisible(false);
@@ -188,8 +177,6 @@ public void OnViewShow(ActionEvent e) throws Exception {
 	
 	showTable.setItems(getShows(ShowMenuClient.ViewShows(Client.clientIn)));
 
-
-	
 }
 
 public void OnSearchShowMenu(ActionEvent e) {
@@ -199,13 +186,7 @@ public void OnSearchShowMenu(ActionEvent e) {
 }
 
 public void OnSearchShow() throws Exception {
-	
-	
-	
 	showSearchTable.setItems(getShows(ShowMenuClient.SearchShows(Client.clientIn,searchFieldS.getText().trim())));
-
-
-	
 }
 
 private ObservableList<Show> getShows(ArrayList<String> shows){
@@ -218,7 +199,7 @@ private ObservableList<Show> getShows(ArrayList<String> shows){
 
 
 	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+public void initialize(URL arg0, ResourceBundle arg1) {
 		addShow.setVisible(false);
 		viewShow.setVisible(false);
 		searchShow.setVisible(false);
@@ -235,8 +216,7 @@ private ObservableList<Show> getShows(ArrayList<String> shows){
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		 
+
 		 //Set View Shows Table Cells
 		 sID.setCellValueFactory(new PropertyValueFactory("ID"));
 		 sMovie.setCellValueFactory(new PropertyValueFactory("movieName"));
